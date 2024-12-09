@@ -1,0 +1,348 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mashal Associates - Excellence Redefined</title>
+    <style>
+        /* General Reset */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: "Poppins", sans-serif;
+            color: #333;
+            background: linear-gradient(to bottom right, lightblue, lightgreen);
+        }
+
+        /* Navigation Bar */
+        nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 10px 20px;
+            background-color: rgba(255, 255, 255, 0.9);
+            position: fixed;
+            width: 100%;
+            top: 0;
+            z-index: 1000;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+        }
+
+        nav .logo {
+            font-size: 1.8rem;
+            color: red;
+            font-weight: bold;
+            text-transform: uppercase;
+        }
+
+        nav ul {
+            display: flex;
+            list-style: none;
+        }
+
+        nav ul li {
+            margin: 0 15px;
+        }
+
+        nav ul li a {
+            text-decoration: none;
+            color: #333;
+            font-size: 1rem;
+            transition: color 0.3s;
+        }
+
+        nav ul li a:hover {
+            color: red;
+        }
+
+        /* Hero Section */
+        header {
+            height: 100vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            background: url('https://source.unsplash.com/1600x900/?luxury,construction') no-repeat center/cover;
+            color: white;
+            text-align: center;
+            padding: 20px;
+        }
+
+        header h1 {
+            font-size: 3rem;
+            margin-bottom: 10px;
+            text-shadow: 0 3px 6px rgba(0, 0, 0, 0.6);
+        }
+
+        header p {
+            font-size: 1.2rem;
+            margin-bottom: 20px;
+            text-shadow: 0 2px 4px rgba(0, 0, 0, 0.5);
+        }
+
+        header a {
+            padding: 10px 20px;
+            background-color: red;
+            color: white;
+            text-decoration: none;
+            font-size: 1rem;
+            border-radius: 20px;
+            transition: transform 0.3s, background-color 0.3s;
+        }
+
+        header a:hover {
+            transform: scale(1.1);
+            background-color: darkred;
+        }
+
+        /* About Section */
+        .about {
+            padding: 60px 20px;
+            text-align: center;
+            background-color: white;
+        }
+
+        .about h2 {
+            color: red;
+            margin-bottom: 20px;
+            font-size: 2.5rem;
+        }
+
+        .about p {
+            font-size: 1.2rem;
+            line-height: 1.6;
+            color: #555;
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        /* Services Section */
+        .services {
+            padding: 60px 20px;
+            background-color: lightgreen;
+        }
+
+        .services h2 {
+            color: red;
+            text-align: center;
+            margin-bottom: 30px;
+            font-size: 2.5rem;
+        }
+
+        .service-cards {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 20px;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .card {
+            background-color: white;
+            border-radius: 12px;
+            padding: 20px;
+            text-align: center;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
+            cursor: pointer;
+        }
+
+        .card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 6px 15px rgba(0, 0, 0, 0.2);
+        }
+
+        .card h3 {
+            color: red;
+            font-size: 1.5rem;
+            margin-bottom: 10px;
+        }
+
+        .card p {
+            font-size: 1rem;
+            color: #555;
+            line-height: 1.6;
+            display: none;
+        }
+
+        .card.active p {
+            display: block;
+        }
+
+        /* Contact Section */
+        .contact {
+            padding: 60px 20px;
+            background-color: white;
+        }
+
+        .contact h2 {
+            color: red;
+            margin-bottom: 20px;
+            font-size: 2.5rem;
+            text-align: center;
+        }
+
+        .contact-form {
+            max-width: 800px;
+            margin: 0 auto;
+            background-color: #f9f9f9;
+            padding: 30px;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+
+        .contact-form input,
+        .contact-form textarea {
+            width: 100%;
+            padding: 15px;
+            margin: 10px 0;
+            border: 2px solid #ddd;
+            border-radius: 5px;
+            font-size: 1rem;
+        }
+
+        .contact-form button {
+            width: 100%;
+            padding: 15px;
+            background-color: red;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            font-size: 1.2rem;
+            cursor: pointer;
+            transition: background-color 0.3s;
+        }
+
+        .contact-form button:hover {
+            background-color: darkred;
+        }
+
+        /* Footer */
+        footer {
+            background-color: lightblue;
+            text-align: center;
+            padding: 20px;
+            font-size: 1rem;
+            color: #333;
+            box-shadow: 0 -2px 4px rgba(0, 0, 0, 0.1);
+        }
+
+        footer p {
+            margin-bottom: 10px;
+        }
+
+        footer a {
+            color: red;
+            text-decoration: none;
+        }
+
+        footer a:hover {
+            text-decoration: underline;
+        }
+    </style>
+</head>
+<body>
+    <!-- Navigation Bar -->
+    <nav>
+        <div class="logo">Mashal Associates</div>
+        <ul>
+            <li><a href="#about">About Us</a></li>
+            <li><a href="#services">Services</a></li>
+            <li><a href="#contact">Contact</a></li>
+        </ul>
+    </nav>
+
+<!-- Your Logo -->
+<img src="aarib/mashal associate logo.png" alt="Your Logo" style="width: 100px; height: auto; margin-right: 20px;">
+
+
+    <!-- Hero Section -->
+    <header>
+        <h1>Welcome to Mashal Associates</h1>
+        <p>Your Trusted Partner in Construction, Security solutions, and Solar systems</p>
+        <a href="#about">About Us</a>
+    </header>
+
+    <!-- About Section -->
+    <section id="about" class="about">
+        <h2>About Us</h2>
+        <p>Mashal Associates is a trusted company based in Islamabad, Pakistan, specializing in construction, solar energy systems, and security solutions. We are dedicated to delivering high-quality and sustainable solutions for homes and businesses. From building strong infrastructure to providing eco-friendly solar power and advanced security systems, we aim to meet the needs of our clients with innovation and reliability. At Mashal Associates, we focus on making a positive impact by offering services that are both practical and affordable, all with in the Islamabad.</p>
+    </section>
+
+    <!-- Services Section -->
+    <section id="services" class="services">
+        <h2>Our Services</h2>
+<center>
+<bold>
+<p>
+  Note: Our services are only available in islamabad
+</p>
+</center>
+</bold>
+        <div class="service-cards">
+            <div class="card" onclick="toggleCard(this)">
+                <h3>Construction</h3>
+                <p>Innovative building solutions that combine quality, design, and functionality for every project. We deliver safe, sustainable, and efficient construction methods all over islamad.</p>
+            </div>
+            <div class="card" onclick="toggleCard(this)">
+                <h3>Security solutions</h3>
+                <p>Advanced security solutions tailored to protect your assets and ensure peace of mind. Our systems are designed to keep you safe, wherever you are in islamad.</p>
+            </div>
+            <div class="card" onclick="toggleCard(this)">
+                <h3>Solar systems</h3>
+                <p>Eco-friendly solar energy systems designed to power your future sustainably. Our systems reduce energy costs while minimizing your carbon footprint we provide quality and a reasonable price all over islamabad.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact">                    
+                                         <center>     
+                                         <h2>Contact Us</h2>
+                                         
+    <p>Please fill out the form below to get in touch with us:</p>
+    <iframe src="https://docs.google.com/forms/d/e/1FAIpQLSdzqHEAQ_YcejFfNC1pZwE_jaBr0qEpjavWULqLB3wZweAlaQ/viewform?embedded=true" width="640" height="823" frameborder="0" marginheight="0" marginwidth="0">Loading…</iframe>
+</section>
+ </center>
+
+<center>
+<a href="https://www.instagram.com/mashal_associations" target="_blank" style="margin-right: 20px;">
+  <img src="https://upload.wikimedia.org/wikipedia/commons/9/95/Instagram_logo_2022.svg" alt="Instagram Icon" style="width: 30px; height: 30px;">
+  mashal_associations
+</a>
+
+<a href="https://www.facebook.com/mashal.associates" target="_blank" style="margin-right: 20px;">
+  <img src="https://upload.wikimedia.org/wikipedia/commons/5/51/Facebook_f_logo_%282019%29.svg" alt="Facebook Icon" style="width: 30px; height: 30px;">
+  mashal_associates
+</a>
+
+<a href="https://wa.me/923001234567" target="_blank" style="margin-right: 20px;">
+  <img src="https://upload.wikimedia.org/wikipedia/commons/6/6b/WhatsApp.svg" alt="WhatsApp Icon" style="width: 30px; height: 30px;">
+  +92 300 1234567
+</a>
+  <li>
+                
+<a href="mailto:mashconstruction@hotmail.com"margin-right: 70px;">
+                   <i class="fas fa-envelope"></i>Email: mashconstruction@hotmail.com
+                </a>
+            </li>
+</center>
+
+    <!-- Footer -->
+    <footer>
+        <p>&copy; 2024 Mashal Associates. All Rights Reserved.</p>
+      
+    </footer>
+
+    <script>
+        function toggleCard(card) {
+            card.classList.toggle('active');
+        }
+    </script>
+</body>
+</html>
